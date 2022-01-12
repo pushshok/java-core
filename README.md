@@ -1,1 +1,2 @@
-# java-core
+# Repository for study Java-core
+
