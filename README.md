@@ -5,3 +5,6 @@
 ## Create classes ClassExceptions, MyArraySizeException, MyArrayDataException for homework 2
 ## Create classes Generalization for work with arrays and classes Box, Fruit, Apple, Orange, BoxTypeException for homework 3
 
+
+## Create class OpenweathermapProvider for homework 6
+
