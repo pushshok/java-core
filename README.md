@@ -7,3 +7,4 @@
 ## Create classes ArrayWord and Phonebook for homework 4
 =======
 
+## Create class AppData for homework 5
