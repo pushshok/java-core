@@ -1,7 +1,7 @@
 /**
  * Java Core. Homework #7. App OpenWeatherMapProvider
  * @author Zdibnyak Maxim
- * @version 08.02.2022
+ * @version 12.02.2022
  */
 package ru.geekbrains;
 
@@ -14,4 +14,6 @@ public interface WeatherProvider {
     public String getWeather(Periods period) throws IOException;
 
     public String getWeatherIn5Days(Periods period) throws IOException;
+
+    public String getCityName();
 }

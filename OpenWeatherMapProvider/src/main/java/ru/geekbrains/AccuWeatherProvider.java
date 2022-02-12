@@ -1,7 +1,7 @@
 /**
  * Java Core. Homework #7. App OpenWeatherMapProvider
  * @author Zdibnyak Maxim
- * @version 08.02.2022
+ * @version 12.02.2022
  */
 package ru.geekbrains;
 
@@ -26,6 +26,7 @@ public class AccuWeatherProvider implements ru.geekbrains.WeatherProvider {
 
     private final OkHttpClient client = new OkHttpClient();
     private final ObjectMapper objectMapper = new ObjectMapper();
+    String cityName = "";
 
     @Override
     public String getWeatherIn5Days(Periods periods) throws IOException {
@@ -49,7 +50,7 @@ public class AccuWeatherProvider implements ru.geekbrains.WeatherProvider {
 
             Response response2 = client.newCall(request2).execute();
 
-            return response2.body().string();
+            return getCityName() + "---" + response2.body().string();
         }
 
         return cityKey;
@@ -77,11 +78,14 @@ public class AccuWeatherProvider implements ru.geekbrains.WeatherProvider {
 
             Response response = client.newCall(request).execute();
 
-            return response.body().string();
+            return getCityName() + "---" + response.body().string();
         }
         return cityKey;
     }
 
+    public String getCityName() {
+        return this.cityName;
+    }
 
 
     public String detectCityKey() throws IOException {
@@ -114,6 +118,7 @@ public class AccuWeatherProvider implements ru.geekbrains.WeatherProvider {
 
         if (objectMapper.readTree(jsonResponse).size() > 0) {
             String cityName = objectMapper.readTree(jsonResponse).get(0).at("/LocalizedName").asText();
+            this.cityName = cityName;
             String countryName = objectMapper.readTree(jsonResponse).get(0).at("/Country/LocalizedName").asText();
             System.out.println("Найден город " + cityName + " в стране " + countryName);
         } else throw new IOException("Server returns 0 cities");

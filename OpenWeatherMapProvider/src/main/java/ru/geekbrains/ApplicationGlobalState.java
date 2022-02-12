@@ -1,7 +1,7 @@
 /**
  * Java Core. Homework #7. App OpenWeatherMapProvider
  * @author Zdibnyak Maxim
- * @version 08.02.2022
+ * @version 12.02.2022
  */
 package ru.geekbrains;
 
