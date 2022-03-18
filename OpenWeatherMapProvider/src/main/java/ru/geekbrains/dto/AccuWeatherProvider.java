@@ -1,20 +1,21 @@
 /**
- * Java Core. Homework #7. App OpenWeatherMapProvider
+ * Java Core. Homework #8. App OpenWeatherMapProvider
  * @author Zdibnyak Maxim
- * @version 12.02.2022
+ * @version 24.02.2022
  */
-package ru.geekbrains;
+package ru.geekbrains.dto;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import ru.geekbrains.ApplicationGlobalState;
 import ru.geekbrains.enums.Periods;
 
 import java.io.IOException;
 
-public class AccuWeatherProvider implements ru.geekbrains.WeatherProvider {
+public class AccuWeatherProvider implements WeatherProvider {
 
     private static final String BASE_HOST = "dataservice.accuweather.com";
     private static final String FORECAST_ENDPOINT = "forecasts";
@@ -83,10 +84,10 @@ public class AccuWeatherProvider implements ru.geekbrains.WeatherProvider {
         return cityKey;
     }
 
-    public String getCityName() {
+    public String getCityName() throws IOException {
+        String cityKey = detectCityKey();
         return this.cityName;
     }
-
 
     public String detectCityKey() throws IOException {
         String selectedCity = ApplicationGlobalState.getInstance().getSelectedCity();
