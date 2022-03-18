@@ -8,4 +8,5 @@
 ## Create class AppData for homework 5
 ## Create class OpenweathermapProvider for homework 6
 ## Create App OpenWeatherMapProvider for homework 7 in directory OpenWeatherMapProvider
+## Update App OpenWeatherMapProvider for homework 8 in directory OpenWeatherMapProvider. Add classes and methods for work with databases.
 =======

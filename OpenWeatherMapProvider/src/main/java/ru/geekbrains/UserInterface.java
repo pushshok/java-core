@@ -1,11 +1,12 @@
 /**
- * Java Core. Homework #7. App OpenWeatherMapProvider
+ * Java Core. Homework #8. App OpenWeatherMapProvider
  * @author Zdibnyak Maxim
- * @version 12.02.2022
+ * @version 24.02.2022
  */
 package ru.geekbrains;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -21,7 +22,7 @@ public class UserInterface {
             setGlobalCity(city);
 
             System.out.println("Введите ответ: 1 - Получить текущую погоду, " +
-                "2 - Получить погоду на следующие 5 дней, " +
+                "2 - Получить погоду на следующие 5 дней, " + "3 - Получить погоду из БД, " +
                 "выход (exit) - завершить работу");
             String result = scanner.nextLine();
 
@@ -36,7 +37,7 @@ public class UserInterface {
 
             try {
                 notifyController(result);
-            } catch (IOException e) {
+            } catch (IOException | SQLException e) {
                 e.printStackTrace();
             }
 
@@ -67,7 +68,7 @@ public class UserInterface {
         }
     }
 
-    private void notifyController(String input) throws IOException {
+    private void notifyController(String input) throws IOException, SQLException {
         controller.onUserInput(input);
     }
 
